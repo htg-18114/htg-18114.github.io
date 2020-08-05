@@ -1,259 +1,124 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
-    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="https://htg-18114/media/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://htg-18114/media/css/live2d.css">
-    <link rel="stylesheet" href="https://htg-18114/styles/main.css">
-    <meta name="description" content="温故而知新" />
-    <title>Gridea</title>
-</head>
-
-
-<body>
-    <!-- 响应式布局，针对PC端内容显示 -->
-    <div id="content">
-        <div class="nav-large">
-            <div class="row">
-                
+<html>
+      <head>
+        <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no" />
+        <meta charset="utf-8">
+        <meta name="referrer" content="never">
+        <title>Gridea</title>
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.11.1/katex.min.css">
+        <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://htg-18114/styles/main.css">
+          <script src="https://htg-18114/media/scripts/mdui.min.js"></script>
+        <link rel="stylesheet" href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css">
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Ma+Shan+Zheng&display=swap" rel="stylesheet">
+        <script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+        <script src="https://htg-18114/media/scripts/script.js"></script>
+        <script >hljs.initHighlightingOnLoad();</script>
         
-    </div>
-    
-    </div>
-    <div id="bg">
-    </div>
-    <div id="bgchoice" style="display: none">
-            </div>
-            
-            <div id="bgurl" style="display:none"></div>
-              
-    <!-- 响应式布局，针对手机端内容显示 -->
-    <div class="nav-small">
-            <head>
-  <!-- 引入Bootstrap核心样式文件 -->
-  <link rel="stylesheet" href="https://htg-18114/media/css/bootstrap.min.css">
-</head>
 
-<body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-          data-target="#barmenu" aria-expanded="false" id="barbutton">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="https://htg-18114">Gridea&nbsp;&nbsp;|</a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="barmenu">
-        <ul class="nav navbar-nav">
-          
-          
-          <li>
-            <a href="/">
-              首页
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/archives">
-              归档
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/tags">
-              标签
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/post/about">
-              关于
-            </a>
-          </li>
-          
-          
-          
-          
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-
-
-  <!-- 引入jQuery核心js文件 -->
-  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script>
-  var btstate = false;
-  var bt = $("#barbutton");
-  var bm = $("#barmenu");
-  bt.click(function(){
-    dropdown();
-  })
-  function dropdown(){
-    console.log(btstate);
-    //下拉
-    if(btstate==false){
-      bt.removeClass("collapsed");
-      bt.attr("aria-expanded","true");
-      bm.attr("aria-expanded","true")
-      bm.fadeIn(700);
-      btstate = true;
-    }
-    else{
-      bt.addClass("collapsed");
-      bt.attr("aria-expanded","false");
-      bm.removeClass("in");
-      bm.hide();
-      bm.attr("aria-expanded","false");
-      btstate = false;
-    }
-  }
-  </script> 
-</body>
-            <!-- 移动端欢迎页 -->
-<div class="welcome">
-    <div class="avatar-border">
-        <img src="https://htg-18114/images/avatar.png?v=1596511028123" class="avatar">
-    </div>
-    <span class="mobiledescribtion"></span>
-</div>
-
-    <div id="mobilebgurl" style="display:none"></div>
-
-<script>
-    var welcome = $('.welcome');
-    var bgurl = document.getElementById("mobilebgurl").innerHTML;
-    for (var i = 0; i < 3; i++)
-        bgurl = bgurl.replace("\\", "/");
-    welcome.css("background", "url('" + bgurl + "')");
-    var mobiledes = document.querySelector(".mobiledescribtion");
-    var text = "温故而知新";
-    // 当前显示第几个字
-    var mobilecharIndex = 1;
-    // 每个字显示间隔默认是500毫秒
-    var mobiledelta = 500;
-
-    // 记录动画执行开始时间
-    var mobilestart = null;
-    // 是否为删除动画
-    var mobileisDeleting = false;
-
-    // 动画回调函数
-    function mobileLoadDes(time) {
-        window.requestAnimationFrame(mobileLoadDes);
-        // 初始化开始时间
-        if (!mobilestart) start = time;
-        // 获取时间间隔
-        var mobileprogress = time - mobilestart;
-        // 每隔一定的时间，打印出一个新的字符
-        if (mobileprogress > mobiledelta) {
-            // 如果是打字效果
-            if (!mobileisDeleting) {
-                // 给展示文字的span新增一个字符，使用innerHTML来替换，charIndex自增1，然后返回新的字符串子串
-                mobiledes.innerHTML = "&nbsp;" + text.slice(
-                    0,
-                    ++mobilecharIndex
-                );
-                mobiledelta = 500 - Math.random() * 400;
-            } else {
-                // 如果是删除效果，则把文字一个一个减掉
-                mobiledes.innerHTML = "&nbsp;" + text.slice(
-                    0,
-                    mobilecharIndex--
-                );
-            }
-            // 把star更新为当前时间，进行下一个周期
-            mobilestart = time;
-
-            // 如果文字已经全部打印完毕
-            if (mobilecharIndex === text.length) {
-                // 下次开始删除文字
-                mobileisDeleting = true;
-                // 删除文字的间隔为200毫秒
-                mobiledelta = 100;
-                // 额外等待1.2秒后再删除
-                mobilestart = time + 1000;
-            }
-
-            // 如果文字删除完毕
-            if (mobilecharIndex < 0) {
-                mobileisDeleting = false;
-                // 额外增加200毫秒延迟
-                mobilestart = time + 200;
-            }
-        }
-    }
-
-    window.requestAnimationFrame(mobileLoadDes);
-</script>
-            <link rel="stylesheet" href="https://htg-18114/media/css/font-awesome.css">
-<div id="post-container">
-    
-    <div class="postshow">
-        
-        <div id="post" style="width:100%">
-            <img src="https://htg-18114/post-images/hello-gridea.png" class="postimage"
-                onclick="window.location.href= 'https://htg-18114/post/hello-gridea/';return false">
-            <div class="posttitlebox">
-                <div class="posttitle" onclick="window.location.href= 'https://htg-18114/post/hello-gridea/';return false">
-                    Hello Gridea
-                </div>
-            </div>
-        </div>
-        <div class="postinfo">
-            <div class="postdate"><i class="fa fa-calendar"></i>2018-12-12</div>
-            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 2 min read</div>
-            <div class="posttag">
+    </head>
+    <body class="mdui-theme-primary-purple mdui-theme-accent-purple">
+        <header class=" mdui-m-b-3 header">
+                          <button class="mdui-btn daohang mdui-btn-icon mdui-btn-dense mdui-color-theme-500 mdui-ripple yinying mdui-m-t-1 mdui-m-l-1" mdui-menu="{target: '#demo-attr-cascade'}"><i class="mdui-icon material-icons">&#xe5d2;</i></button>
+                <ul class="mdui-menu " id="demo-attr-cascade">
                 
-                <a href="https://htg-18114/tag/TOgLmWg4M/" class="postlink">
-                    <i class="fa fa-tag"></i> Gridea
-                </a>
+                        <li class="mdui-menu-item">
+                          <a href="/" class="mdui-ripple">首页</a>
+                        </li>
                 
-            </div>
-        </div>
-        
-    </div>
-    
-</div>
-            <div class="pagination-container">
-                  
+                        <li class="mdui-menu-item">
+                          <a href="/archives" class="mdui-ripple">归档</a>
+                        </li>
                 
-            </div>
-            <div style="margin-bottom:60px">&nbsp;</div>
-        </div>
+                        <li class="mdui-menu-item">
+                          <a href="/tags" class="mdui-ripple">标签</a>
+                        </li>
+                
+                        <li class="mdui-menu-item">
+                          <a href="/post/about" class="mdui-ripple">关于</a>
+                        </li>
+                
+                      </ul>
+                      <div class="mdui-text-center">
+                      <div class="mdui-typo-display-4 mdui-m-b-3 index-title">Gridea</div>
+                      <div class="mdui-typo-headline">温故而知新</div>
+                      </div>
 
-        <div id="landlord">
-            <div class="message" style="opacity:0"></div>
-            <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
-        </div>
-    </div>
-    <div id="domainname" style="display:none">https://htg-18114</div>
-</body>
+        </header >
+        <div class="mdui-container">
+                <div class="mdui-row">
+                        <div class="mdui-col-md-6 mdui-col-offset-md-3 ">
+                                                     
+                            <article class="mdui-m-t-4 index-list mdui-shadow-15 mdui-hoverable mdui-p-a-2 q">
+                                    <div class="mdui-row">
+                                            <div class="mdui-col-xs-12 ">
+                                              <div class="mdui-row mdui-m-b-2">
+                                                <div class="mdui-col-xs-12 mdui-col-sm-8">
+                                                    <div class="mdui-typo-headline mdui-m-b-2"><a href="https://htg-18114/post/hello-gridea/" class="index-list-title">Hello Gridea</a></div>
+                                                    <div class="mdui-typo-body-2 index-list-neirong"><p>👏  欢迎使用 Gridea ！
+✍️  Gridea 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...
 
+Github
+Gridea 主页
+示例网站
+特性👇
+📝  你可以使用最酷的 Markdo...</p></div>
+                                                </div>
+                                                <div class="mdui-col-xs-12 mdui-col-sm-4 "><div class="index-list-img mdui-shadow-8" style="background-image:url(https://htg-18114/post-images/hello-gridea.png)"></div></div>
+                                              </div>
+                                              
+                                              <a href="https://htg-18114/tag/TOgLmWg4M/" class="index-list-biaoqian mdui-float-left yinying">Gridea</a>
+                                               
+                                              <a href="https://htg-18114/post/hello-gridea/" class="index-list-biaoqian mdui-float-right yinying">2018-12-12</a>
+                                              
+
+                                            </div>
+                                          </div>
+
+                            </article>
+
+
+                                                   <nav class="mdui-m-y-3">
+                         
+                         
+                         </nav>
+
+                        </div>
+                 </div>
+          
+        </div>
+        <footer class="footer mdui-m-t-5 mdui-text-center">
+               <nav class="social-links">
+                      <ul>
+                      
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                      </ul>
+                    </nav>
+                    <div class="copyright">
+                      <p>Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> <br/> Theme <a href="https://github.com/shanbufun/gridea-theme-jia" target="_blank"  title="佳"  >Jia</a> by <a href="https://shanbu.fun/" target="_blank"  title="山卜方" >Shanbufun</a> </p>
+                  </div>
+              </footer>
+    </body>
 </html>
-
-
-<script>
-        var bgchoice=$('#bgchoice').html();
-        var bg = $('#bg');
-        var bgurl = document.getElementById("bgurl").innerHTML;
-        if(bgchoice=='default')
-            for (var i = 0; i < 3; i++)
-                bgurl = bgurl.replace("\\", "/");
-        bg.css("background", "url('" + bgurl + "')");
-</script>
